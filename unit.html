@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unit Converter Project</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: tahoma;
+      }
+      h1#heading {
+        text-align: center;
+        margin-top: 40px;
+      }
+      #container {
+        margin: 15px auto 0px auto;
+        width: 80%;
+        text-align: center;
+        background-color: #ccc;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      .input1 {
+        display: inline-block;
+      }
+      .inpt {
+        padding: 5px 10px;
+        margin: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        width: 200px;
+        text-align: center;
+        border-radius: 10px;
+      }
+      label {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">Unit Converter</h1>
+    <div id="container">
+      <div class="input1">
+        <label>Feet</label>
+        <input type="Number" value="1" id="feet" class="inpt" />
+      </div>
+      <h1 class="input1">=</h1>
+      <div class="input1">
+        <label>Inches</label>
+        <input type="Number" value="12" id="inch" class="inpt" />
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var feet = document.getElementById("feet");
+      var inch = document.getElementById("inch");
+
+      feet.addEventListener("input", function () {
+        let f = this.value;
+        let i = f * 12;
+        inch.value = i;
+      });
+      inch.addEventListener("input", function () {
+        let i = this.value;
+        let f = i / 12;
+        if (!Number.isInteger(f)) {
+          f = f.toFixed(2);
+        }
+        feet.value = f;
+      });
+    </script>
+  </body>
+</html>
